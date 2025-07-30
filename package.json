@@ -1,0 +1,36 @@
+{
+  "name": "playwright-ts-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:dev": "cross-env NODE_ENV=dev npm run test",
+    "test:dev:api": "npm run test:dev -- --project=api",
+    "test:dev:ui": "npm run test:dev -- --project=ui",
+    "test:qa": "cross-env NODE_ENV=qa npm run test",
+    "test:qa:api": "npm run test:qa -- --project=api",
+    "test:qa:ui": "npm run test:qa -- --project=ui",
+    "test:staging": "cross-env NODE_ENV=staging npm run test",
+    "test:staging:api": "npm run test:staging -- --project=api",
+    "test:staging:ui": "npm run test:staging -- --project=ui",
+    "test:prod": "cross-env NODE_ENV=prod npm run test",
+    "test:prod:api": "npm run test:prod -- --project=api",
+    "test:prod:ui": "npm run test:prod -- --project=ui"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.0.14",
+    "cross-env": "^10.0.0",
+    "eslint": "^9.31.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.37.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  }
+}
