@@ -29,7 +29,7 @@ export default defineConfig({
   expect: {
     timeout: TIMEOUTS.expect.default
   },
-  reporter: 'html',
+  reporter: process.env.CI ? [['html', 'junit']] : 'html',
   use: {
     trace: 'on'
   },
@@ -41,7 +41,6 @@ export default defineConfig({
     },
     {
       name: 'api',
-      use: { ...devices['Desktop Chrome'] },
       testDir: './tests/e2e/api'
     }
   ]
