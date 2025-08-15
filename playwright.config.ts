@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import { DEFAULT_ENV, ALLOWED_ENVS } from './framework/environment';
+import { DEFAULT_ENV, ALLOWED_ENVS } from './application/environment';
 import { TIMEOUTS } from './framework/timeouts';
 import dotenv from 'dotenv';
 import path from 'path';

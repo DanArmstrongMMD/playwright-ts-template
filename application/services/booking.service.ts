@@ -1,6 +1,6 @@
 import { APIRequestContext, APIResponse } from '@playwright/test';
-import { TestConfig } from '../framework/config';
-import { step } from '../framework/decorators';
+import { TestConfig } from '../config';
+import { step } from '../../framework/decorators';
 
 export class BookingService {
   private readonly url = TestConfig.urls.api.useGateway ? TestConfig.urls.api.gateway : TestConfig.urls.api.bookingService;
@@ -8,7 +8,7 @@ export class BookingService {
   private readonly bookingEndpoint = `${this.url}/booking`;
   private readonly bookingByIdEndpoint = (bookingId: string) => `${this.bookingEndpoint}/${bookingId}`;
 
-  constructor(private requestContext: APIRequestContext) {}
+  constructor(private readonly requestContext: APIRequestContext) {}
 
   @step('Create a Booking')
   async createBooking(bookingData: Record<string, unknown>): Promise<APIResponse> {

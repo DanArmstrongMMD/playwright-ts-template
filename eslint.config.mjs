@@ -8,5 +8,5 @@ export default tseslint.config(eslint.configs.recommended, tseslint.configs.reco
   rules: {
     'no-empty-pattern': 'off'
   },
-  files: ['framework/**/*.ts']
+  files: ['framework/**/*.ts', 'application/**/*.ts']
 });

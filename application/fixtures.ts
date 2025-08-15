@@ -1,11 +1,13 @@
 import { APIRequestContext, test as base } from '@playwright/test';
 import { Helpers } from './helpers';
-import { LoginPage } from '../pages/login.page';
-import { BookingService } from '../services/booking.service';
+import { LoginPage } from './pages/login.page';
+import { BookingService } from './services/booking.service';
 
+// Test Fixtures //
 type UIFixtures = {
   loginPage: LoginPage;
 };
+
 type APIFixtures = {
   authToken: string;
   authenticatedRequest: APIRequestContext;
@@ -13,6 +15,8 @@ type APIFixtures = {
 };
 
 type TestFixtures = UIFixtures & APIFixtures;
+
+// Worker Fixtures //
 type WorkerFixtures = {
   exampleWorkerFixture: void;
 };
