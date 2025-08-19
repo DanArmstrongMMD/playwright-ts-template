@@ -1,19 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
-import { DEFAULT_ENV, ALLOWED_ENVS } from './application/environment';
+import { getEnvFilePath } from './application/environment';
 import { TIMEOUTS } from './framework/timeouts';
 import dotenv from 'dotenv';
-import path from 'path';
 
-function getEnvFilePath(env: string): string {
-  return path.resolve(__dirname, `.env.${env}`);
-}
-
-const env = (process.env.NODE_ENV ?? DEFAULT_ENV).toLowerCase();
-if (!ALLOWED_ENVS.has(env)) throw new Error(`Unknown environment: ${env}. Please set NODE_ENV to 'qa', 'dev', 'staging', or 'prod'.`);
-
-const envFilePath = getEnvFilePath(env);
-const result = dotenv.config({ path: envFilePath });
-if (result.error) console.warn(`Warning: Could not load environment file at ${envFilePath}`);
+const result = dotenv.config({ path: getEnvFilePath() });
+if (result.error) throw result.error;
 
 /**
  * See https://playwright.dev/docs/test-configuration.
